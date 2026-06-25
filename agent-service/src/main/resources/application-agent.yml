@@ -1,0 +1,23 @@
+# ========== LLM 配置 ==========
+# 支持两种模式：
+#   1. 远程 API（如 DashScope、OpenAI）：需要 url + api-key + model
+#   2. 本地部署（如 Ollama、vLLM）：需要 url + model，api-key 可选
+llm:
+  # 提供商: dashscope | openai | local（本地 OpenAI 兼容服务）
+  provider: openai
+  # API 地址（远程 API 或本地服务的完整 URL）
+  url: ${LVYOU_LLM_URL:https://token-plan-cn.xiaomimimo.com/v1}
+  # API Key（本地部署如 Ollama 可设为 "ollama" 或留空）
+  api-key: ${LVYOU_LLM_API_KEY:tp-cqxfulvqf88cs6t4jxh83s7xnmed7ll24ccnoocmth9l4ilx}
+  # 模型名称
+  model: ${LVYOU_LLM_MODEL:mimo-v2.5-pro}
+
+# ========== Agent 配置 ==========
+agent:
+  max-iters: 12
+  timeout: 120000  # 2分钟超时
+
+logging:
+  level:
+    com.lvyou.agent: DEBUG
+    io.agentscope: INFO

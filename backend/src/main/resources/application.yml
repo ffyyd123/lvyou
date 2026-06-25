@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: lvyou
+  config:
+    import: optional:classpath:application-agent.yml
+  mvc:
+    problemdetails:
+      enabled: true
+
+agent:
+  endpoint: http://localhost:8080/agent/plan
+
+history:
+  file: ../data/history.json
+
+amap:
+  web-service-key: ${AMAP_WEBSERVICE_KEY:ec2ce44653e9bc37fb3c6ffedb80e145}
+
+logging:
+  level:
+    com.lvyou: DEBUG
